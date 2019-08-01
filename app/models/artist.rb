@@ -3,7 +3,10 @@ class Artist < ActiveRecord::Base
   has_many :genres, through: :songs
 
   def get_genre_of_first_song
-    #return the genre of the artist's first saved song
+     self.each do |g|
+       g.songs.first
+     end
+     
   end
 
   def song_count
